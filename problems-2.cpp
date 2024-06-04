@@ -4,47 +4,47 @@ using namespace std;
 // Class Fruit
 class Fruit {
 protected:
-    int totalFruits; // Total number of fruits in the basket
+    int totalFruits = 0; // Total number of fruits in the basket
 public:
-    Fruit() : totalFruits(0) {} // Constructor to initialize totalFruits to 0
 
     void addToBasket(int num) {
         totalFruits += num; // Add fruits to the basket
     }
 
-    int getTotalFruits() const {
+    int getTotalFruits() {
         return totalFruits; // Get the total number of fruits in the basket
     }
 };
+
+
 
 // Class Apples, a subclass of Fruit
 class Apples : public Fruit {
     int numApples; // Number of apples in the basket
 public:
-    Apples() : numApples(0) {} // Constructor to initialize numApples to 0
+   
 
     void addApples(int num) {
         numApples += num; // Add apples to the basket
         addToBasket(num); // Update totalFruits
     }
 
-    int getApples() const {
+    int getApples() {
         return numApples; // Get the number of apples in the basket
     }
 };
 
 // Class Mangoes, a subclass of Fruit
 class Mangoes : public Fruit {
-    int numMangoes; // Number of mangoes in the basket
+    int numMangoes = 0; // Number of mangoes in the basket
 public:
-    Mangoes() : numMangoes(0) {} // Constructor to initialize numMangoes to 0
-
+    
     void addMangoes(int num) {
         numMangoes += num; // Add mangoes to the basket
         addToBasket(num); // Update totalFruits
     }
 
-    int getMangoes() const {
+    int getMangoes() {
         return numMangoes; // Get the number of mangoes in the basket
     }
 };

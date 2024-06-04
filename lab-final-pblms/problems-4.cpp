@@ -3,24 +3,24 @@ using namespace std;
 
 // Base class
 class Fruit {
-public:
-    virtual void showItem() = 0;
+    public:
+        virtual void showItem() = 0;
 };
 
 // Derived class Mango
 class Mango : public Fruit {
-public:
-    void showItem() {
-        cout << "Sells mango" << endl;
-    }
+    public:
+        void showItem() {
+            cout << "Sells mango" << endl;
+        }
 };
 
 // Derived class Watermelon
 class Watermelon : public Fruit {
-public:
-    void showItem() {
-        cout << "Sells watermelon" << endl;
-    }
+    public:
+        void showItem() {
+            cout << "Sells watermelon" << endl;
+        }
 };
 
 int main() {

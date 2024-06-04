@@ -1,28 +1,34 @@
 #include <iostream>
 using namespace std;
 
+// Enum declaration outside the class
+enum Period { HOURLY, WEEKLY, MONTHLY };
+
 // Base class
 class Employee {
-protected:
-    string name;
-    int id;
-public:
-    Employee(string name, int id) : name(name), id(id) {}
-    virtual void display() const {
-        cout << "Name: " << name << ", ID: " << id << endl;
-    }
+    protected:
+        string name;
+        int id;
+    public:
+        Employee(string name, int id){
+            this->name = name;
+            this->id = id;
+        }
+        
+        virtual void display() const {
+            cout << "Name: " << name << ", ID: " << id << endl;
+        }
 };
 
 // Derived class with compensation and period
 class Employee2 : public Employee {
 protected:
     double compensation;
-    enum Period { HOURLY, WEEKLY, MONTHLY };
     Period period;
 public:
     Employee2(string name, int id, double compensation, Period period) : Employee(name, id), compensation(compensation), period(period) {}
 
-    void display() const override {
+    void display() {
         cout << "Name: " << name << ", ID: " << id << ", Compensation: " << compensation << ", Period: ";
         switch (period) {
             case HOURLY:
@@ -56,9 +62,9 @@ public:
 };
 
 int main() {
-    Manager2 manager("John Doe", 1001, 5000.0, Employee2::WEEKLY);
-    Scientist2 scientist("Jane Smith", 1002, 6000.0, Employee2::MONTHLY);
-    Laborer2 laborer("Tom Brown", 1003, 15.0, Employee2::HOURLY);
+    Manager2 manager("John Doe", 1001, 5000.0, WEEKLY);
+    Scientist2 scientist("Jane Smith", 1002, 6000.0, MONTHLY);
+    Laborer2 laborer("Tom Brown", 1003, 15.0, HOURLY);
 
     manager.display();
     scientist.display();

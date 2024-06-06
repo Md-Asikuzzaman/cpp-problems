@@ -4,11 +4,14 @@ using namespace std;
 
 // Base class Vehicle
 class Vehicle {
-protected:
-    float mileage; // Mileage of the vehicle
-    float price;   // Price of the vehicle
-public:
-    Vehicle(float _mileage, float _price) : mileage(_mileage), price(_price) {}
+    protected:
+        float mileage; // Mileage of the vehicle
+        float price;   // Price of the vehicle
+    public:
+        Vehicle(float _mileage, float _price) {
+            mileage = _mileage;
+            price = _price;
+        }
 };
 
 // Subclass Car
@@ -20,8 +23,13 @@ protected:
     string fuelType;      // Fuel type (diesel or petrol)
 public:
     Car(float _mileage, float _price, float _ownershipCost, int _warranty, int _seatingCapacity, string _fuelType)
-        : Vehicle(_mileage, _price), ownershipCost(_ownershipCost), warranty(_warranty),
-          seatingCapacity(_seatingCapacity), fuelType(_fuelType) {}
+        : Vehicle(_mileage, _price) {
+              
+              ownershipCost = _ownershipCost;
+              warranty = _warranty;
+              seatingCapacity = _seatingCapacity;
+              fuelType = _fuelType;
+          }
 
     void printInfo() {
         cout << "Ownership Cost: " << ownershipCost << endl;
@@ -44,8 +52,13 @@ protected:
 public:
     Bike(float _mileage, float _price, int _numCylinders, int _numGears,
          string _coolingType, string _wheelType, float _fuelTankSize)
-        : Vehicle(_mileage, _price), numCylinders(_numCylinders), numGears(_numGears),
-          coolingType(_coolingType), wheelType(_wheelType), fuelTankSize(_fuelTankSize) {}
+        : Vehicle(_mileage, _price),
+          coolingType(_coolingType) {
+              numCylinders = _numCylinders;
+              numGears = _numGears;
+              wheelType = _wheelType;
+              fuelTankSize = _fuelTankSize;
+          }
 
     void printInfo() {
         cout << "Number of Cylinders: " << numCylinders << endl;
@@ -65,7 +78,9 @@ protected:
 public:
     Audi(float _mileage, float _price, float _ownershipCost, int _warranty, int _seatingCapacity,
          string _fuelType, string _modelType)
-        : Car(_mileage, _price, _ownershipCost, _warranty, _seatingCapacity, _fuelType), modelType(_modelType) {}
+        : Car(_mileage, _price, _ownershipCost, _warranty, _seatingCapacity, _fuelType) {
+            modelType = _modelType;
+        }
 
     void printInfo() {
         cout << "Model Type: " << modelType << endl;
@@ -80,7 +95,9 @@ protected:
 public:
     Ford(float _mileage, float _price, float _ownershipCost, int _warranty, int _seatingCapacity,
          string _fuelType, string _modelType)
-        : Car(_mileage, _price, _ownershipCost, _warranty, _seatingCapacity, _fuelType), modelType(_modelType) {}
+        : Car(_mileage, _price, _ownershipCost, _warranty, _seatingCapacity, _fuelType) {
+            modelType = _modelType;
+        }
 
     void printInfo() {
         cout << "Model Type: " << modelType << endl;
@@ -95,7 +112,9 @@ protected:
 public:
     Bajaj(float _mileage, float _price, int _numCylinders, int _numGears,
           string _coolingType, string _wheelType, float _fuelTankSize, string _makeType)
-        : Bike(_mileage, _price, _numCylinders, _numGears, _coolingType, _wheelType, _fuelTankSize), makeType(_makeType) {}
+        : Bike(_mileage, _price, _numCylinders, _numGears, _coolingType, _wheelType, _fuelTankSize) {
+            makeType = _makeType;
+        }
 
     void printInfo() {
         cout << "Make Type: " << makeType << endl;
@@ -110,7 +129,9 @@ protected:
 public:
     TVS(float _mileage, float _price, int _numCylinders, int _numGears,
         string _coolingType, string _wheelType, float _fuelTankSize, string _makeType)
-        : Bike(_mileage, _price, _numCylinders, _numGears, _coolingType, _wheelType, _fuelTankSize), makeType(_makeType) {}
+        : Bike(_mileage, _price, _numCylinders, _numGears, _coolingType, _wheelType, _fuelTankSize) {
+             makeType = _makeType;
+        }
 
     void printInfo() {
         cout << "Make Type: " << makeType << endl;

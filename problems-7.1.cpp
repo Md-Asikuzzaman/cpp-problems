@@ -8,8 +8,10 @@ protected:
 
 public:
     void get_data() {
-        cout << "Enter the dimensions: ";
-        cin >> side1 >> side2;
+        cout << "Enter the dimensions-1: ";
+        cin >> side1;
+        cout << "Enter the dimensions-2: ";
+        cin >> side2;
     }
 
     virtual void display_area() {
@@ -19,7 +21,7 @@ public:
 
 class Triangle : public Shape {
 public:
-    void display_area() override {
+    void display_area() {
         Shape::display_area();
         cout << 0.5 * side1 * side2 << endl;
     }
@@ -27,7 +29,7 @@ public:
 
 class Rectangle : public Shape {
 public:
-    void display_area() override {
+    void display_area() {
         Shape::display_area();
         cout << side1 * side2 << endl;
     }
@@ -43,7 +45,7 @@ int main() {
     s->get_data();
     s->display_area();
 
-    cout << "\nEnter dimensions for Rectangle:" << endl;
+    cout << "Enter dimensions for Rectangle:" << endl;
     s = &r;
     s->get_data();
     s->display_area();
